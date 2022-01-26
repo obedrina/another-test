@@ -11,3 +11,6 @@ blocks:
         - name: 'Job #1'
           commands:
             - checkout
+            - echo $cole_var
+      secrets:
+        - name: test2
