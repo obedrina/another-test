@@ -12,5 +12,12 @@ blocks:
           commands:
             - checkout
             - echo $cole_var
+            - cd test
+            - asdasd
       secrets:
         - name: test2
+  - name: 'Block #2'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
