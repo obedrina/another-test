@@ -11,10 +11,27 @@ blocks:
         - name: 'Job #1'
           commands:
             - checkout
-      secrets:
-        - name: test2
   - name: 'Block #2'
     task:
       jobs:
         - name: 'Job #1'
-          commands: []
+          commands:
+            - sleep 120
+  - name: 'Block #3'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - sleep 120
+  - name: 'Block #4'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - sleep 120
+  - name: 'Block #5'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - sleep 120
