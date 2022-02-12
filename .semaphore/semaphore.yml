@@ -16,7 +16,8 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - sleep 120
+            - echo test > test.txt
+            - artifacts push workflow test.txt
   - name: 'Block #3'
     task:
       jobs:
