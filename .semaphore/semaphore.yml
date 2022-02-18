@@ -27,16 +27,4 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - sleep 120
-  - name: 'Block #4'
-    task:
-      jobs:
-        - name: 'Job #1'
-          commands:
-            - sleep 120
-  - name: 'Block #5'
-    task:
-      jobs:
-        - name: 'Job #1'
-          commands:
-            - sleep 120
+            - cat /tmp/system-metrics
