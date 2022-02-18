@@ -14,7 +14,8 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - checkout
+            - sudo service docker stop && sudo umount /var/lib/docker && sudo service docker start
+            - cat /tmp/system-metrics
   - name: 'Block #2'
     task:
       jobs:
