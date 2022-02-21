@@ -22,7 +22,7 @@ blocks:
         - name: 'Job #1'
           commands:
             - echo test > test.txt
-            - artifact push workflow test.txt
+            - artifact push job test.txt
   - name: 'Block #3'
     task:
       jobs:
