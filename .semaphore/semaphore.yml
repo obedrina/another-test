@@ -11,7 +11,7 @@ global_job_config:
 blocks:
   - name: 'Block #1'
     run:
-      when: "change_in('/web-app/', {default_branch: 'main'}, {pipeline_file: 'ignore'})"
+      when: "change_in('/web-app/', {default_branch: 'main', pipeline_file: 'ignore'})"
     task:
       jobs:
         - name: 'Job #1'
@@ -20,7 +20,7 @@ blocks:
             - cat /tmp/system-metrics
   - name: 'Block #2'
     run:
-      when: "change_in('/web-app/', {default_branch: 'main'}, {pipeline_file: 'ignore'})"
+      when: "change_in('/web-app/', {default_branch: 'main', pipeline_file: 'ignore'})"
     task:
       jobs:
         - name: 'Job #1'
