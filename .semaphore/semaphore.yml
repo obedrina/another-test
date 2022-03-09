@@ -10,17 +10,15 @@ global_job_config:
       - echo cole
 blocks:
   - name: 'Block #1'
-    run:
-      when: "change_in('/web-app/', {default_branch: 'main', pipeline_file: 'ignore'})"
     task:
       jobs:
         - name: 'Job #1'
           commands:
+            - checkout
             - sudo service docker stop && sudo umount /var/lib/docker && sudo service docker start
             - cat /tmp/system-metrics
+            - cache store
   - name: 'Block #2'
-    run:
-      when: "change_in('/web-app/', {default_branch: 'main', pipeline_file: 'ignore'})"
     task:
       jobs:
         - name: 'Job #1'
