@@ -21,12 +21,17 @@ blocks:
   - name: 'Block #2'
     task:
       jobs:
-        - name: 'Job #1'
+        - name: Push 100Mb Artifact
           commands:
-            - echo test > test.txt
-            - echo test > test2.txt
-            - artifact push job test.txt
-            - artifact push job test2.txt
+            - truncate -s 100M 100MB_file.txt
+            - artifact push workflow 100MB_file.txt
+  - name: 'Block #3'
+    task:
+      jobs:
+        - name: Pull 100Mb Artifact
+          commands:
+            - artifact pull workflow 100MB_file.txt
+            - ls
 promotions:
   - name: Deploy
     pipeline_file: pipeline_2.yml
