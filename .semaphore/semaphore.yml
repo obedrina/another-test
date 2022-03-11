@@ -31,7 +31,7 @@ blocks:
         - name: Pull 100Mb Artifact
           commands:
             - artifact pull workflow 100MB_file.txt
-            - ls
+            - ls -l
 promotions:
   - name: Deploy
     pipeline_file: pipeline_2.yml
