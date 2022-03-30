@@ -1,5 +1,5 @@
 version: v1.0
-name: Initial Pipeline
+name: Research
 agent:
   machine:
     type: e1-standard-2
@@ -9,42 +9,42 @@ global_job_config:
     commands:
       - echo cole
 blocks:
-  - name: 'Block #1'
+  - name: Opportunity Assessment
     task:
       jobs:
-        - name: 'Job #1'
+        - name: Define Objectives
           commands:
-            - checkout
-            - sudo service docker stop && sudo umount /var/lib/docker && sudo service docker start
-            - cat /tmp/system-metrics
-            - cache store
+            - echo test
+        - name: Define KPIs
+          commands:
+            - echo test
+        - name: Define customer problem
+          commands:
+            - echo test
       agent:
         machine:
           type: a1-standard-8
           os_image: macos-xcode13
-  - name: 'Block #2'
+    dependencies: []
+  - name: Customer letter
     task:
       jobs:
-        - name: Push 100Mb Artifact
+        - name: Write customer letter
           commands:
-            - truncate -s 100M 100MB_file.txt
-            - artifact push workflow 100MB_file.txt
-  - name: 'Block #3'
+            - echo test
+    dependencies:
+      - Opportunity Assessment
+  - name: Requrement Analysis
     task:
       jobs:
-        - name: Pull 100Mb Artifact
+        - name: Define user personas
           commands:
-            - artifact pull workflow 100MB_file.txt
-            - ls -l
+            - echo test
+        - name: Build feasibility prototype
+          commands:
+            - echo test
+    dependencies:
+      - Opportunity Assessment
 promotions:
-  - name: Deploy
+  - name: Move to Design
     pipeline_file: pipeline_2.yml
-    parameters:
-      env_vars:
-        - required: true
-          options:
-            - Stage
-            - Production
-          default_value: Stage
-          description: Where to deploy?
-          name: ENVIRONMENT

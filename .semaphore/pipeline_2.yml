@@ -1,15 +1,18 @@
 version: v1.0
-name: 'Deploy to ${{parameters.ENVIRONMENT}}'
+name: Design
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-queue:
-  processing: parallel
 blocks:
-  - name: 'Block #1'
+  - name: UI prototype
     task:
       jobs:
-        - name: 'Job #1'
+        - name: Low fidelity
           commands:
-            - sleep 120s
+            - echo "job 1"
+        - name: High fidelity
+          commands: []
+promotions:
+  - name: Implementation
+    pipeline_file: pipeline_3.yml
