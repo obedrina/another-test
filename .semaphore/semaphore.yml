@@ -10,21 +10,15 @@ blocks:
     task:
       jobs:
         - name: bundle
-          commands:
-            - checkout
-            - make bundle
+          commands: []
   - name: Static analysis
     dependencies: []
     task:
       jobs:
         - name: Rubocop
-          commands:
-            - checkout
-            - make rubocop
+          commands: []
         - name: Lint
-          commands:
-            - checkout
-            - make lint
+          commands: []
   - name: Unit tests
     dependencies:
       - Install deps
@@ -32,7 +26,5 @@ blocks:
     task:
       jobs:
         - name: RSpec
-          commands:
-            - checkout
-            - make rspec
+          commands: []
           parallelism: 4
