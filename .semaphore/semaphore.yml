@@ -1,50 +1,13 @@
 version: v1.0
-name: Research
+name: Initial Pipeline
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu2004
-global_job_config:
-  prologue:
-    commands:
-      - echo cole
 blocks:
-  - name: Opportunity Assessment
+  - name: 'Block #1'
     task:
       jobs:
-        - name: Define Objectives
+        - name: 'Job #1'
           commands:
-            - echo test
-        - name: Define KPIs
-          commands:
-            - echo test
-        - name: Define customer problem
-          commands:
-            - echo test
-      agent:
-        machine:
-          type: a1-standard-8
-          os_image: macos-xcode13
-    dependencies: []
-  - name: Customer letter
-    task:
-      jobs:
-        - name: Write customer letter
-          commands:
-            - echo test
-    dependencies:
-      - Opportunity Assessment
-  - name: Requrement Analysis
-    task:
-      jobs:
-        - name: Define user personas
-          commands:
-            - echo test
-        - name: Build feasibility prototype
-          commands:
-            - echo test
-    dependencies:
-      - Opportunity Assessment
-promotions:
-  - name: Move to Design
-    pipeline_file: pipeline_2.yml
+            - checkout
